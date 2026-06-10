@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "author": "ABDELILAH TOUIL",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "ds18b20",
+      "top": -80,
+      "left": -160,
+      "attrs": {
+        "celsius": "22"
+      }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht22",
+      "top": 80,
+      "left": -160,
+      "attrs": {
+        "temperature": "22",
+        "humidity": "55"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnPlus",
+      "top": -100,
+      "left": 270,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnMinus",
+      "top": -40,
+      "left": 270,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledRed",
+      "top": 60,
+      "left": 280,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledBlue",
+      "top": 110,
+      "left": 280,
+      "attrs": {
+        "color": "blue"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 170,
+      "left": 270,
+      "attrs": {
+        "volume": "1"
+      }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 300,
+      "left": -80,
+      "attrs": {
+        "pins": "i2c",
+        "address": "0x27"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -80,
+      "left": -80,
+      "attrs": {
+        "value": "4700"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:3V3",
+      "ds18b20:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "ds18b20:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D4",
+      "ds18b20:DQ",
+      "yellow",
+      []
+    ],
+    [
+      "ds18b20:DQ",
+      "r1:1",
+      "yellow",
+      []
+    ],
+    [
+      "r1:2",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "esp:3V3",
+      "dht22:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.2",
+      "dht22:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D15",
+      "dht22:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:D13",
+      "btnPlus:1.l",
+      "purple",
+      []
+    ],
+    [
+      "esp:GND.3",
+      "btnPlus:2.l",
+      "black",
+      []
+    ],
+    [
+      "esp:D12",
+      "btnMinus:1.l",
+      "purple",
+      []
+    ],
+    [
+      "esp:GND.4",
+      "btnMinus:2.l",
+      "black",
+      []
+    ],
+    [
+      "esp:D26",
+      "ledRed:A",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.5",
+      "ledRed:K",
+      "black",
+      []
+    ],
+    [
+      "esp:D27",
+      "ledBlue:A",
+      "blue",
+      []
+    ],
+    [
+      "esp:GND.6",
+      "ledBlue:K",
+      "black",
+      []
+    ],
+    [
+      "esp:D14",
+      "buzzer:1",
+      "orange",
+      []
+    ],
+    [
+      "esp:GND.7",
+      "buzzer:2",
+      "black",
+      []
+    ],
+    [
+      "esp:D21",
+      "lcd:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:D22",
+      "lcd:SCL",
+      "yellow",
+      []
+    ],
+    [
+      "esp:3V3",
+      "lcd:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.8",
+      "lcd:GND",
+      "black",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "auto"
+  }
+}
