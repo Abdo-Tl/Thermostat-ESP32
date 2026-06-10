@@ -1,0 +1,5 @@
+OneWire
+DallasTemperature
+DHT sensor library
+LiquidCrystal I2C
+Blynk
